@@ -1,0 +1,17 @@
+<div [ngClass]="{
+  'list-group-item': true,
+  'list-group-item-success': isLoved(),
+  'list-group-item-danger': isNotLoved()
+}">
+  <div class="post-date float-right">
+    {{ post.created_at | date: 'dd/MM/yyyy hh:mm a' }}
+  </div>
+  <h2>{{ post.title }}</h2>
+  <p class="clearfix">
+    {{ post.content }}
+  </p>
+  <div class="post-love">
+    <button type="button" class="btn btn-success" (click)="onLoved()" >Love it!</button>
+    <button type="button" class="btn btn-danger" (click)="onNotLoved()" >Don't Love it!</button>
+  </div>
+</div>

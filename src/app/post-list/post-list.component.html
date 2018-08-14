@@ -1,0 +1,7 @@
+<h1>{{ title }}</h1>
+<div *ngIf="!posts.length">
+  Aucun post
+</div>
+<div *ngIf="posts.length" class="list-group">
+  <app-post-list-item *ngFor="let post of posts" [post]="post"></app-post-list-item>
+</div>
