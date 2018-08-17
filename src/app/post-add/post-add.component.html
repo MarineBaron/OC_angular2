@@ -1,0 +1,12 @@
+<h1>{{ titl }}</h1>
+<form [formGroup]="postForm" (ngSubmit)="onSubmitForm()">
+  <div class="form-group">
+    <label for="title">Titre</label>
+    <input type="text" id="title" class="form-control" formControlName="title">
+  </div>
+  <div class="form-group">
+    <label for="content">Contenu</label>
+    <textarea id="content" class="form-control" formControlName="content"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!postForm.dirty || postForm.invalid">Envoyer</button>
+</form>

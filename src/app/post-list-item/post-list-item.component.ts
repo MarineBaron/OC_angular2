@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 
+import { PostService } from '../services/post.service';
+
 import { Post } from '../models/post.model';
 
 @Component({
@@ -11,6 +13,8 @@ export class PostListItemComponent {
 
   @Input() post: Post;
 
+  constructor(private postService: PostService) { }
+
   isLoved(): boolean {
     return this.post.loveIts > 0;
   }
@@ -19,11 +23,11 @@ export class PostListItemComponent {
     return this.post.loveIts < 0;
   }
 
-  onLoved(): void {
-    this.post.loveIts++;
+  onChangeLoveIts(value: number): void {
+    this.postService.changeLoveIts(this.post, value);
   }
 
-  onNotLoved(): void {
-    this.post.loveIts--;
+  onDelete(): void {
+    this.postService.deletePost(this.post);
   }
 }
